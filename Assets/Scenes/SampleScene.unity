@@ -566,6 +566,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703b247636806f24791886ac005791cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 527876836}
+  _speed: 5
+  _joystick: {fileID: 719208497}
+  _animator: {fileID: 0}
 --- !u!54 &527876836
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -625,6 +629,18 @@ Transform:
   - {fileID: 1375364312}
   m_Father: {fileID: 527876834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719208497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8152475455617589819, guid: d623ab8b6f8dab34c940d296f921fd2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1419143490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb235e2ccf99784393d42db62f26462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
