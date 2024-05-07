@@ -15,11 +15,14 @@ public class RigidBodyMove : MonoBehaviour
     void Update()
     {
         _moveInput = _joystick.Value;
+
+        _animator.SetBool("Run", _joystick.IsPressed);
+       
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = new Vector3(_moveInput.x, 0f, _moveInput.y);
+        _rigidbody.velocity = new Vector3(_moveInput.x, 0f, _moveInput.y) * _speed;
         if (_rigidbody.velocity != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(_rigidbody.velocity, Vector3.up);
