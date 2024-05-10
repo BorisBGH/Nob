@@ -14,12 +14,14 @@ public class ExperienceManager : MonoBehaviour
     [SerializeField] private Image _experienceScale;
     [SerializeField] private EffectsManager _effectsManager;
     [SerializeField] private AnimationCurve _experienceCurve;
+    [SerializeField] private ParticleSystem _levelUpVFX;
 
     private void Awake()
     {
         DisplayExperience();
         _nextLevelExperience = _experienceCurve.Evaluate(_level);
-;    }
+        ;
+    }
 
     public void AddExperience(int value)
     {
@@ -37,12 +39,18 @@ public class ExperienceManager : MonoBehaviour
         _level++;
         _levelText.text = _level.ToString();
         _curentExperience = 0;
-        _effectsManager.ShowCards();
+        _levelUpVFX.Play();
+        Invoke(nameof(GetCards), 1.5f);
         _nextLevelExperience = _experienceCurve.Evaluate(_level);
     }
 
     private void DisplayExperience()
     {
         _experienceScale.fillAmount = _curentExperience / _nextLevelExperience;
+    }
+
+    private void GetCards()
+    {
+        _effectsManager.ShowCards();
     }
 }
