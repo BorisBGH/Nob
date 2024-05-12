@@ -11,16 +11,28 @@ public class EffectsManager : MonoBehaviour
     [SerializeField] private List<ContinousEffect> _continousEffectsApplied = new List<ContinousEffect>();
     [SerializeField] private List<OneTimeEffect> _oneTimeEffectsApplied = new List<OneTimeEffect>();
     [SerializeField] private CardsManager _cardsManager;
+    [SerializeField] private EnemyManager _enemyManager;
+    [SerializeField] private Player _player;
 
     private void Awake()
     {
         for (int i = 0; i < _continousEffects.Count; i++)
         {
             _continousEffects[i] = Instantiate(_continousEffects[i]);
+            _continousEffects[i].Init(this, _enemyManager, _player);
         }
         for (int i = 0; i < _oneTimeEffects.Count; i++)
         {
             _oneTimeEffects[i] = Instantiate(_oneTimeEffects[i]);
+            _oneTimeEffects[i].Init(this, _enemyManager, _player);
+        }
+    }
+
+    private void Update()
+    {
+        foreach (var effect in _continousEffectsApplied)
+        {
+            effect.ProcessFrame(Time.deltaTime);
         }
     }
 

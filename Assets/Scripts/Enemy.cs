@@ -11,13 +11,20 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _roationLerpRate;
     [SerializeField] private PlayerHealth _playerHealth;
 
+    [SerializeField] private int _health = 50;
+    [SerializeField] private GameObject _dieEffect;
+
     private float _attackTimer;
     [SerializeField] private float _attackPeriod = 1f;
     [SerializeField] private float _damagePerSec;
 
-    public void Init(Transform playerTransform)
+    private EnemyManager _enemyManager;
+    private bool _isDead;
+
+    public void Init(Transform playerTransform, EnemyManager enemyManager)
     {
         _playerTransform = playerTransform;
+        _enemyManager = enemyManager;
     }
 
     private void Update()
@@ -65,5 +72,28 @@ public class Enemy : MonoBehaviour
         {
             _playerHealth = null;
         }
+    }
+
+    public void SetDamage(int damage)
+    {
+        _health -= damage;
+
+        if (_health <= 0f)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        if (!_isDead)
+        {
+            Instantiate(_dieEffect, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
+            _enemyManager.RemoveEnemy(this);
+            Destroy(gameObject, 1f);
+            _isDead = true;
+        }
+       
     }
 }

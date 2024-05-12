@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _currentHealth;
+    [SerializeField] private GameStateManager _gameStateManager;
 
     private void Start()
     {
@@ -35,5 +36,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("dead");
+        _gameStateManager.SetLose();
+
     }
 }

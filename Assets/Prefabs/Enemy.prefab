@@ -119,11 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b922205cf0e3a4e92f3f083b04d527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTransform: {fileID: 0}
   _speed: 3
   _rigidbody: {fileID: 5430928525852838725}
   _roationLerpRate: 3
   _playerHealth: {fileID: 0}
+  _health: 50
+  _dieEffect: {fileID: 8891085540853434729, guid: a76161fe5e4d2c447965f3a0c359e851,
+    type: 3}
   _attackPeriod: 1
   _damagePerSec: 10
 --- !u!54 &5430928525852838725

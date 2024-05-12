@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class ExperienceManager : MonoBehaviour
 {
     [SerializeField] private float _curentExperience = 0f;
     [SerializeField] private float _nextLevelExperience = 5f;
-    private int _level;
+    private int _level = -1;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private Image _experienceScale;
     [SerializeField] private EffectsManager _effectsManager;
@@ -41,6 +42,15 @@ public class ExperienceManager : MonoBehaviour
         _curentExperience = 0;
         _levelUpVFX.Play();
         Invoke(nameof(GetCards), 1.5f);
+        _nextLevelExperience = _experienceCurve.Evaluate(_level);
+    }
+
+    public void InitialUpLevel()
+    {
+        _level++;
+        _levelText.text = _level.ToString();
+        _curentExperience = 0;
+        GetCards();
         _nextLevelExperience = _experienceCurve.Evaluate(_level);
     }
 

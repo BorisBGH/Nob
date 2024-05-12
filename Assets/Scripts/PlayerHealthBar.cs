@@ -7,6 +7,7 @@ public class PlayerHealthBar : MonoBehaviour
 {
     [SerializeField] private Image _playerHealthScale;
     [SerializeField] private PlayerHealth _playerHealth;
+   
 
     private void Awake()
     {
