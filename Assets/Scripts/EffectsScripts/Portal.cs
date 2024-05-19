@@ -33,10 +33,9 @@ public class Portal : MonoBehaviour
         foreach (Collider collider in colliders)
         {
 
-            if (collider?.GetComponent<Enemy>() is Enemy enemy)
+            if (collider.GetComponent<Enemy>() is Enemy enemy)
             {
-                _enemy = enemy;
-                Debug.Log("ENEMNY near portal");
+                _enemy = enemy;               
                 _enemy.transform.position = Vector3.Lerp(enemy.transform.position, transform.position, _enemySpeedToPortal);
                 Invoke(nameof(HitEnemy), 2f);
 
@@ -52,6 +51,6 @@ public class Portal : MonoBehaviour
 
     private void HitEnemy()
     {
-        _enemy?.SetDamage(_damage);
+        _enemy.SetDamage(_damage);
     }
 }

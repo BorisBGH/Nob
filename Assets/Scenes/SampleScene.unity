@@ -1270,6 +1270,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 825fdc56c65eb484f964fad1ffacb308, type: 2}
   - {fileID: 11400000, guid: 6d74b711c3ed42b4d90a67071b7337a5, type: 2}
   - {fileID: 11400000, guid: 30120763b63bcbd479c22024fe343006, type: 2}
+  - {fileID: 11400000, guid: dc138c17ac039dd418f024bf393b0e60, type: 2}
   _oneTimeEffects: []
   _continousEffectsApplied: []
   _oneTimeEffectsApplied: []
@@ -3580,12 +3581,12 @@ PrefabInstance:
     - target: {fileID: 8152475456537471219, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 22.273129
+      value: 23.86678
       objectReference: {fileID: 0}
     - target: {fileID: 8152475456537471219, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 22.273129
+      value: 23.86678
       objectReference: {fileID: 0}
     - target: {fileID: 8196812612993696243, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
@@ -3701,12 +3702,12 @@ PrefabInstance:
     - target: {fileID: 8196812613576827625, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 79.832
+      value: 85.54401
       objectReference: {fileID: 0}
     - target: {fileID: 8196812613576827625, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 79.832
+      value: 85.54401
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

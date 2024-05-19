@@ -16,12 +16,13 @@ public class MagicMissileEffect : ContinousEffect
     {
         base.Produce();
         _effectsManager.StartCoroutine(EffectProcess());
-        
+
     }
 
+    [SerializeField] private List<Enemy> nearestEnemies = new List<Enemy>();
     private IEnumerator EffectProcess()
     {
-        List <Enemy> nearestEnemies = _enemyManager.GetNearest(_player.transform.position, _numberOfEnemiesToAttack);
+        nearestEnemies = _enemyManager.GetNearest(_player.transform.position, _numberOfEnemiesToAttack);
         if (nearestEnemies.Count > 0)
         {
             foreach (var enemy in nearestEnemies)

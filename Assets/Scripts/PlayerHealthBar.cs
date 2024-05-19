@@ -18,4 +18,9 @@ public class PlayerHealthBar : MonoBehaviour
     {
         _playerHealthScale.fillAmount = currentHealth/maxHealth;
     }
+
+    private void OnDestroy()
+    {
+        _playerHealth.OnHealthChange -= SetScale;
+    }
 }

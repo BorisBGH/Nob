@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14b19d0ea4834c4c9a61a20077131d8, type: 3}
+  m_Name: ArtilleryEffect
+  m_EditorClassIdentifier: 
+  Name: 
+  Description: 
+  Sprite: {fileID: 21300000, guid: d33407169b9261e4384f33e8ed87d5d0, type: 3}
+  Level: -1
+  _calldown: 7
+  _artilleryShellPref: {fileID: 2667858549882618403, guid: 3797037159d24ee4faf904b104429af6,
+    type: 3}
+  _attackDistance: 5
+  _distanceToPlayer: 20
+  _damage: 20
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 256

@@ -14,7 +14,7 @@ public class MagicMissile : MonoBehaviour
         _damage = damage;
         _targetEnemy = targetEnemy;
         _speed = speed;
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 2f);
     }
 
     void Update()
@@ -22,13 +22,12 @@ public class MagicMissile : MonoBehaviour
         if (_targetEnemy)
         {
             transform.position = Vector3.MoveTowards(transform.position, _targetEnemy.transform.position, _speed * Time.deltaTime);
-            if (transform.position == _targetEnemy.transform.position)
+            float distance = Vector3.Distance(transform.position, _targetEnemy.transform.position);
+            if (distance < 1f)
             {
                 AffectEnemy();
                 Destroy(gameObject);
-
             }
-
         }
         else
         {

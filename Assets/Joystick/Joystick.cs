@@ -56,6 +56,7 @@ public class Joystick : MonoBehaviour
 
     public void Deactivate()
     {
+        ResetJoystick();
         gameObject.SetActive(false);
     }
 
@@ -154,12 +155,18 @@ public class Joystick : MonoBehaviour
     public void OnUp(PointerEventData eventData)
     {
         if (!IsPressed) return;
-        IsPressed = false;
-        Hide();
-        Value = Vector2.zero;
+        ResetJoystick();
         _fingerId = -1;
         EventOnUp.Invoke(eventData.position);
 
+    }
+
+    private void ResetJoystick()
+    {
+        IsPressed = false;
+        Hide();
+        Value = Vector2.zero;
+       
     }
 
     private void Show()

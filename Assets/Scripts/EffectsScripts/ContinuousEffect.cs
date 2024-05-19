@@ -10,7 +10,7 @@ public class ContinousEffect : Effect
     {
         _timer += frameTime;
 
-        Debug.Log(_timer);
+       
         if (_timer >= _calldown)
         {
             Produce();

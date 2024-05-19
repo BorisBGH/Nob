@@ -63,33 +63,34 @@ public class EnemyManager : MonoBehaviour
     {
         int returnNumber = Mathf.Min(numberOfEnemies, _enemyList.Count);
         List<Enemy> nearestEnemies = new List<Enemy>(returnNumber);
-        bool isAdded = false;
+
 
         for (int i = 0; i < returnNumber; i++)
         {
-            Enemy nearest = _enemyList[0];
-          
-            nearestEnemies.Add(nearest);
-            nearest.GetComponentInChildren<Renderer>().material.color = Color.blue;
+
+            Enemy firstEnemy = _enemyList[0];
+            nearestEnemies.Add(firstEnemy);
+            
             foreach (Enemy enemy in _enemyList)
             {
-                if (Vector3.Distance(fromPoint, enemy.transform.position) < Vector3.Distance(fromPoint, nearest.transform.position) && !isAdded)
+                if (Vector3.Distance(fromPoint, enemy.transform.position) <= Vector3.Distance(fromPoint, firstEnemy.transform.position))
                 {
-
-                    nearestEnemies.Add(enemy);
-                    isAdded = true;
-                    enemy.GetComponentInChildren<Renderer>().material.color = Color.green;
+                    if (nearestEnemies.Count < numberOfEnemies)
+                    {
+                        firstEnemy = enemy;
+                        nearestEnemies.Add(enemy);                       
+                    }
                 }
                 else
                 {
-                    nearestEnemies.Remove(enemy);
-                    enemy.GetComponentInChildren<Renderer>().material.color = Color.black;
-                    isAdded = false;
+                    nearestEnemies.Remove(enemy);                  
                 }
 
-
             }
+            
         }
+
+
         return nearestEnemies;
     }
 }

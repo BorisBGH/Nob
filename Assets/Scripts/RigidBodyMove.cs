@@ -25,7 +25,7 @@ public class RigidBodyMove : MonoBehaviour
         _rigidbody.velocity = new Vector3(_moveInput.x, 0f, _moveInput.y) * _speed;
         if (_rigidbody.velocity != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(_rigidbody.velocity, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_rigidbody.velocity, Vector3.up), 10f * Time.deltaTime);
         }
     }
 }

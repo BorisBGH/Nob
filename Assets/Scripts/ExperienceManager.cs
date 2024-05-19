@@ -41,7 +41,7 @@ public class ExperienceManager : MonoBehaviour
         _levelText.text = _level.ToString();
         _curentExperience = 0;
         _levelUpVFX.Play();
-        Invoke(nameof(GetCards), 1.5f);
+        StartCoroutine(GetCards(1.5f));
         _nextLevelExperience = _experienceCurve.Evaluate(_level);
     }
 
@@ -50,7 +50,7 @@ public class ExperienceManager : MonoBehaviour
         _level++;
         _levelText.text = _level.ToString();
         _curentExperience = 0;
-        GetCards();
+        StartCoroutine(GetCards(0));
         _nextLevelExperience = _experienceCurve.Evaluate(_level);
     }
 
@@ -59,8 +59,9 @@ public class ExperienceManager : MonoBehaviour
         _experienceScale.fillAmount = _curentExperience / _nextLevelExperience;
     }
 
-    private void GetCards()
+    private IEnumerator GetCards(float waitAmount)
     {
+        yield return new WaitForSecondsRealtime(waitAmount);
         _effectsManager.ShowCards();
     }
 }

@@ -16,9 +16,11 @@ MonoBehaviour:
   Description: 
   Sprite: {fileID: 21300000, guid: 7aa63e3899c3f71438347eb55fb64295, type: 3}
   Level: -1
-  _calldown: 0.5
+  _calldown: 1
   _magicMissilePref: {fileID: 4247535953789876138, guid: 886224c285e70fe4ea4c1814717b8c4a,
     type: 3}
   _missileSpeed: 8
   _damage: 10
   _numberOfEnemiesToAttack: 4
+  nearestEnemies:
+  - {fileID: 0}
